@@ -621,18 +621,32 @@ class BuildManager:
                 content = re.sub(r'aria-label="页脚"', 'aria-label="Footer"', content)
                 
                 # 修复链接指向
+                # 保护章节页顶部显式声明的中文切换链接，避免被重写成当前英文页自身
+                content = re.sub(r'href="(\.?/?README)_zh\.html(#[^"]*)?"',
+                                 lambda m: f'href="__KEEP_ZH_README__{m.group(2) or ""}"', content)
                 content = re.sub(r'href="([^"]*)_zh\.html"', r'href="\1.html"', content)
                 content = re.sub(r'href="([^"]*)/index_zh\.html"', r'href="\1/index.html"', content)
                 
                 # 修复目录结构中的链接
                 content = re.sub(r'href="([^"]*)_zh\.html#', r'href="\1.html#', content)
+                content = content.replace('href="__KEEP_ZH_README__"', 'href="README_zh.html"')
+                content = content.replace('href="__KEEP_ZH_README__#', 'href="README_zh.html#')
+                content = content.replace('href=".__KEEP_ZH_README__"', 'href="./README_zh.html"')
+                content = content.replace('href=".__KEEP_ZH_README__#', 'href="./README_zh.html#')
                 
             else:
                 # 中文版保持原样，但确保语言属性正确
                 content = re.sub(r'lang="en"', 'lang="zh-CN"', content)
+                # 保护章节页顶部显式声明的英文切换链接，避免被重写成当前中文页自身
+                content = re.sub(r'href="(\.?/?README)\.html(#[^"]*)?"',
+                                 lambda m: f'href="__KEEP_EN_README__{m.group(2) or ""}"', content)
                 # 确保中文版链接指向中文版文件
                 content = re.sub(r'href="([^"]*)(?<!_zh)\.html"', r'href="\1_zh.html"', content)
                 content = re.sub(r'href="([^"]*)/index\.html"', r'href="\1/index_zh.html"', content)
+                content = content.replace('href="__KEEP_EN_README__"', 'href="README.html"')
+                content = content.replace('href="__KEEP_EN_README__#', 'href="README.html#')
+                content = content.replace('href=".__KEEP_EN_README__"', 'href="./README.html"')
+                content = content.replace('href=".__KEEP_EN_README__#', 'href="./README.html#')
                 # 修复搜索框文本
                 content = re.sub(r'placeholder="Search documentation"', 'placeholder="搜索文档"', content)
                 content = re.sub(r'aria-label="Search documentation"', 'aria-label="搜索文档"', content)
