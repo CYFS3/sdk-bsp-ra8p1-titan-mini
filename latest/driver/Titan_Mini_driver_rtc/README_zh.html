@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTC 驱动示例说明 &mdash; Titan-Board-Mini SDK 1.0.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version_menu.css?v=ad0e61b7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=694004e0" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pdf_button.css?v=b2b664f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/edit_button.css?v=d629c565" />
+      <link rel="stylesheet" type="text/css" href="../../_static/language_switch.css?v=e28326ac" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dark_mode.css?v=72ec50b7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=86952a2f"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/translations.js?v=540d3cec"></script>
+      <script src="../../_static/version_menu.js?v=cc75255b"></script>
+      <script src="../../_static/download_pdf.js?v=d1800c12"></script>
+      <script src="../../_static/version_info.js"></script>
+      <script src="../../_static/edit_on_github.js?v=5e1f1957"></script>
+      <script src="../../_static/language_switch.js?v=ae690a3a"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex_zh.html" />
+    <link rel="search" title="搜索" href="../../search_zh.html" />
+    <link rel="next" title="SDRAM 驱动示例说明" href="../Titan_Mini_driver_sdram/README_zh.html" />
+    <link rel="prev" title="GPT 驱动示例说明" href="../Titan_Mini_driver_gpt/README_zh.html" />
+   
+  
+  
+    <script>window.SPHINX_EDIT_BASE_URL = "https://github.com/CYFS3/sdk-bsp-ra8p1-titan-mini/edit/";</script>
+    <meta name="edit-base-url" content="https://github.com/CYFS3/sdk-bsp-ra8p1-titan-mini/edit/">
+  
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index_zh.html" class="icon icon-home">
+            Titan-Board-Mini SDK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../start/index_zh.html">快速上手</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html">模板工程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id2">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id3">特性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id4">项目结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id5">快速开始</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id6">二次开发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../start/Titan_Mini_template/README_zh.html#id7">进阶阅读</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/index_zh.html">基础篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html">LED 闪烁示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#gpio">GPIO 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id2">1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#ra8-gpio">2. RA8 系列 GPIO 特点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#rt-thread-pin">3. RT-Thread PIN 框架</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id3">硬件说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id4">软件说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id5">编译下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id6">运行效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_blink_led/README_zh.html#id7">进阶阅读</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html">按键中断 示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#id2">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#ra8-mcu">RA8 系列 MCU 中断体系概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#fsp">FSP配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#id3">示例代码说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#id4">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../basic/Titan_Mini_key_irq/README_zh.html#id5">运行效果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index_zh.html">驱动篇</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html">ADC 驱动示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id1">简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id2">主要特性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id3">1. 硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#ra8p1">1.1 RA8P1 微控制器概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id4">1.2 ADC 硬件特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id8">1.3 硬件连接图</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id9">2. 软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#rt-thread-adc">2.1 RT-Thread ADC 驱动框架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id12">2.2 项目软件架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id14">2.3 程序执行流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id15">3. 使用示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id16">3.1 基础 ADC 采样</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id19">3.2 多线程实现</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id22">3.3 命令行接口使用</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id24">4. 运行效果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id25">4.1 终端输出示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id27">5. 参考资源</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_adc/README_zh.html#id28">5.1 技术文档</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html">CAN FD 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id1">简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id2">主要特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#ra8p1-can-fd">RA8P1 CAN FD硬件特性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#rt-thread-can">软件架构 - RT-Thread CAN设备框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#rt-thread">RT-Thread驱动模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#can">CAN设备操作接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id11">中断处理机制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id15">运行效果示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id16">1. 硬件连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#pcan-view">2. PCAN-View 软件配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id20">3. 终端命令操作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_canfd/README_zh.html#id23">4. 数据收发测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html">Ethernet 示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id2">以太网（Ethernet）简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id3">1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id4">2. 以太网帧结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#ra8">RA8 系列以太网特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id5">1. 网络接口特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#mac">2. MAC 特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#dma">3. DMA 与缓冲特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id6">4. 中断机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#phy">5. PHY 管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id7">6. 协议与栈支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id8">7. 性能与可靠性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#fsp">FSP 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id9">软件说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id10">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#id11">运行效果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_eth/README_zh.html#iperf">iperf 测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html">GPT 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id1">简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id2">核心功能特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id3">技术栈</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id4">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#ra8p1">1. RA8P1 微控制器特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id7">2. GPT 硬件模块详解</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id10">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#rt-thread">1. RT-Thread 设备框架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id13">2. 驱动程序架构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id15">使用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id16">配置说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_gpt/README_zh.html#id17">运行效果示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RTC 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">主要功能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ra8p1-rtc">硬件介绍 - RA8P1 RTC 特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2. RA8P1 RTC 主要特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3. RA8P1 RTC 技术参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rt-thread-rtc">软件架构 - RT-Thread RTC 设备框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rt-thread">1. RT-Thread 设备架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">2. RTC 设备类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">3. 设备管理接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rt-thread-rtc-api">4. RT-Thread RTC API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">使用示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">1. 时间设置与读取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">2. 闹钟配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">配置说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">运行效果示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">1. 控制台输出</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html">SDRAM 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id1">项目概述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id2">主要特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id3">技术架构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id4">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#ra8p1">2.1 RA8P1 外部存储器接口特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id8">2.2 SDRAM 类型支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id11">2.3 硬件连接说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id16">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id17">3.1 SDRAM 驱动初始化流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id20">3.2 内存管理机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#bsp">3.3 BSP 层封装</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id25">使用示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id26">4.1 基础读写操作</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdram/README_zh.html#id29">运行效果示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html">SD卡文件系统示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id2">SD 卡简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id3">1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id4">2. SD 卡类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id5">3. SD 卡接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id6">4. 工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id7">5. SD 卡性能指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id8">6. SD 卡应用场景</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#ra8-sdhi">RA8 系列 SDHI 模块概述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id9">1. 总体特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#sdhi">2. SDHI 模块架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id10">3. SDHI 工作原理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#fsp">FSP 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id11">示例工程说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id12">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_sdcard/README_zh.html#id13">运行效果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html">SPI 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id1">项目介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id2">主要特性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id3">目录结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#ra8p1-spi">1. 硬件介绍 - RA8P1 的 SPI 特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#ra8p1">1.1 RA8P1 微控制器概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id4">1.2 SPI 硬件特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id9">1.3 SPI 引脚映射</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#rt-thread-spi">2. 软件架构 - RT-Thread SPI 设备框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id10">2.1 RT-Thread SPI 架构概览</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id11">2.2 主要数据结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id14">2.3 SPI 工作模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#api">2.4 核心 API 接口</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_spi/README_zh.html#id22">3. 运行效果示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html">WDT 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id1">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id2">目录结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#ra8p1wdt">1. 硬件介绍 - RA8P1的WDT特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id3">1.1 看门狗概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#ra8p1-wdt">1.2 RA8P1 WDT 主要特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id8">1.3 硬件参数配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#rt-thread">2. 软件架构 - RT-Thread看门狗设备框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id9">2.1 RT-Thread 看门狗驱动架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#fsp">2.2 FSP 集成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id13">2.3 RT-Thread 设备配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id14">3. 使用示例 - 基于实际代码的看门狗初始化、喂狗</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id15">3.1 主要功能分析</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#wdt-sample">3.2 看门狗测试函数 (<code class="docutils literal notranslate"><span class="pre">wdt_sample</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#rt-thread-api">3.3 RT-Thread 看门狗 API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id19">4. 配置说明 - 超时时间、复位模式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id20">4.1 超时时间配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id22">4.2 复位模式配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id25">5.WDT工程配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id26">5. 运行效果示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id27">5.1 正常运行流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Titan_Mini_driver_wdt/README_zh.html#id28">结论</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../component/index_zh.html">组件篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html">QSPI Flash 文件系统示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id2">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#w25q64-qspi-flash">1. W25Q64 QSPI Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#qspi">2. QSPI 接口特性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id3">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id4">1. 分层设计</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id5">2. 核心组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id6">3. 工程结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id7">使用示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id8">1. 初始化流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id9">2. 文件操作示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id10">运行效果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id11">1. 终端输出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id12">2. 文件系统测试</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id13">注意事项</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#flash">1. Flash 使用限制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id14">2. 文件系统建议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id15">3. 性能优化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id16">扩展应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../component/Titan_Mini_component_flash_fs/README_zh.html#id17">相关资料</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../multimedia/index_zh.html">多媒体显示篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html">LVGL 示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id2">LVGL 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id3">主要特点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id4">应用场景</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id5">生态与社区</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#i2c0">I2C0 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id6">触摸中断配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id7">软件说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id8">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_rgb_lvgl/README_zh.html#id9">运行效果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html">MIPI CSI 摄像头示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#ra8-mipi-csi">RA8 系列 MIPI CSI 特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id2">1. 硬件接口特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id3">2. 图像格式与处理能力</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#dma">3. DMA 支持与缓冲机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id4">4. 中断机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id5">5. 时序与同步特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id6">6. 性能优化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id7">7. 应用场景</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#ra8-mcu-glcdc-graphics-lcd-controller">RA8 系列 MCU GLCDC（Graphics LCD Controller）特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id8">1. 硬件特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id9">2. 图层与显示模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id10">3. DMA 与帧缓冲</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id11">4. 硬件图形功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id12">5. 中断机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id13">6. 性能优化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id14">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multimedia/Titan_Mini_display_camera_mipi_csi/README_zh.html#id15">运行效果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../peripheral/index_zh.html">外设扩展篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html">IMU 传感器示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id2">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#lsm6ds3tr-c-imu">1. LSM6DS3TR-C IMU 传感器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id3">2. 加速度计特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id4">3. 陀螺仪特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id5">4. 主要功能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id8">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id9">1. 分层设计</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id10">2. 核心组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id12">3. 工程结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id13">使用说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id14">1. 初始化流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#i2c">2. I2C 平台接口实现</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id15">3. 数据格式转换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id16">配置说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#kconfig">1. Kconfig 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#rt-thread-settings">2. RT-Thread Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id17">运行效果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id18">1. 终端输出</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_peripheral_imu/README_zh.html#id19">相关资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html">PDM 麦克风实时回环示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id2">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id3">1. PDM 麦克风</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#ra8p1-pdm">2. RA8P1 PDM 接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id4">3. 音频输出</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id5">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id6">1. 数据流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id7">2. 核心组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id10">3. 双缓冲机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id11">4. 工程结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id12">配置说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id13">1. PDM 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id14">2. 关键参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id15">运行效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id16">故障排查</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id17">1. 没有声音输出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id18">2. 声音卡顿</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_pdm/README_zh.html#id19">3. 声音失真</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html">RGB LCD 示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#ra8-glcdc">RA8 系列 GLCDC 模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id2">1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id3">2. 模块架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#glcdc">3. GLCDC 工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id4">4. GLCDC 支持的功能与特性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#rt-thread-lcd">RT-Thread LCD 驱动框架</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id5">主要接口</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id6">硬件说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#fsp">FSP 配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#hyperram">HyperRAM 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id7">RGB LCD 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#lcd">LCD 背光配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#d-ave-2d">D/AVE 2D 配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id8">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_rgb_lcd/README_zh.html#id9">运行效果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html">USB-PCDC 驱动示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id2">USB PCDC 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id3">1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#pcdc">2. PCDC 的协议特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id4">3. 典型应用架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id5">4. 优点</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#ra8-usb-pcdc-r-usb-pcdc">RA8 系列 USB PCDC 模块（r_usb_pcdc）简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id6">1. 模块定位与功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id7">2. 支持能力</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id8">3. 模块架构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id9">4. 工作流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#fsp">FSP 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#rt-thread-settings">RT-Thread Settings 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id10">编译&amp;下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_usb_pcdc/README_zh.html#id11">运行效果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html">WAV 音频播放器示例说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id2">硬件介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#es8156">1. ES8156 音频编解码器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id3">2. ES8156 主要特性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#ssi-synchronous-serial-interface">3. SSI (Synchronous Serial Interface) 接口</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id6">软件架构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id7">1. 分层设计</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id8">2. 核心组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id10">3. 工程结构</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id11">使用说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id12">1. 初始化流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id13">2. 播放 WAV 文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id14">3. WAV 文件格式要求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id15">配置说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#kconfig">1. Kconfig 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#rt-thread-settings">2. RT-Thread Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id16">3. 硬件连接</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id17">运行效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../peripheral/Titan_Mini_wavplayer/README_zh.html#id18">相关资料</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index_zh.html">Titan-Board-Mini SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index_zh.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index_zh.html">驱动篇</a></li>
+      <li class="breadcrumb-item active">RTC 驱动示例说明</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="rtc">
+<h1>RTC 驱动示例说明<a class="headerlink" href="#rtc" title="链接到此标题。"></a></h1>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="链接到此标题。"></a></h2>
+<p>本示例展示如何在 <strong>Titan Board Mini</strong> 上使用 <strong>RT-Thread RTC 设备驱动框架</strong> 来驱动 RA8P1 微控制器的实时时钟外设。RTC (Real-Time Clock) 是一个重要的硬件外设，能够在主电源断开时继续保持时间信息，为系统提供可靠的时间基准。</p>
+<section id="id2">
+<h3>主要功能<a class="headerlink" href="#id2" title="链接到此标题。"></a></h3>
+<ul class="simple">
+<li><p><strong>RA8P1 RTC 硬件初始化</strong></p></li>
+<li><p><strong>日期和时间设置与读取</strong></p></li>
+<li><p><strong>闹钟功能配置</strong></p></li>
+<li><p><strong>电池备份支持</strong></p></li>
+<li><p><strong>LED 指示灯状态显示</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="ra8p1-rtc">
+<h2>硬件介绍 - RA8P1 RTC 特性<a class="headerlink" href="#ra8p1-rtc" title="链接到此标题。"></a></h2>
+<section id="id3">
+<h3>1. 概述<a class="headerlink" href="#id3" title="链接到此标题。"></a></h3>
+<p>RA8P1 是瑞萨电子推出的高性能微控制器，集成了多个先进的外设。其 RTC 模块是一个完整的实时时钟系统，具备完整的日历功能和低功耗特性。</p>
+</section>
+<section id="id4">
+<h3>2. RA8P1 RTC 主要特性<a class="headerlink" href="#id4" title="链接到此标题。"></a></h3>
+<section id="id5">
+<h4>2.1 核心功能<a class="headerlink" href="#id5" title="链接到此标题。"></a></h4>
+<ul class="simple">
+<li><p><strong>日历功能</strong>: 支持年份、月份、日期、小时、分钟、秒的完整时间计算</p></li>
+<li><p><strong>时钟源</strong>: 32.768kHz 晶振作为时钟源，提供精准的时间基准</p></li>
+<li><p><strong>低功耗运行</strong>: 支持低功耗模式，可在电池供电下长时间运行</p></li>
+<li><p><strong>电池备份</strong>: 支持 VBATT 电池备份功能，主电源断开后仍能保持时间信息</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>2.2 闹钟功能<a class="headerlink" href="#id6" title="链接到此标题。"></a></h4>
+<ul class="simple">
+<li><p><strong>可编程闹钟</strong>: 支持设置多个闹钟事件</p></li>
+<li><p><strong>多种触发方式</strong>:</p>
+<ul>
+<li><p>每秒触发</p></li>
+<li><p>每分钟触发</p></li>
+<li><p>每小时触发</p></li>
+<li><p>每日触发</p></li>
+<li><p>每周触发</p></li>
+<li><p>每月触发</p></li>
+<li><p>每年触发</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id7">
+<h4>2.3 高级特性<a class="headerlink" href="#id7" title="链接到此标题。"></a></h4>
+<ul class="simple">
+<li><p><strong>闰年自动补偿</strong>: 自动处理闰年计算</p></li>
+<li><p><strong>2000-2099 日历</strong>: 支持 100 年日历范围 (2000-2099)</p></li>
+<li><p><strong>温度补偿</strong>: 可选温度补偿功能提高时间精度</p></li>
+<li><p><strong>事件链接控制器</strong>: 支持与外设的事件链接触发</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>2.4 硬件支持<a class="headerlink" href="#id8" title="链接到此标题。"></a></h4>
+<ul class="simple">
+<li><p><strong>VBATT 引脚</strong>: 专门的电池备份引脚，支持外部电池供电</p></li>
+<li><p><strong>32.768kHz 晶振</strong>: 内置副时钟振荡器</p></li>
+<li><p><strong>备份寄存器</strong>: 提供数据备份功能</p></li>
+<li><p><strong>篡改检测</strong>: 支持最多 3 个篡改检测引脚</p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>2.5 电源管理<a class="headerlink" href="#id9" title="链接到此标题。"></a></h4>
+<ul class="simple">
+<li><p><strong>多种电源模式</strong>:</p>
+<ul>
+<li><p>正常模式</p></li>
+<li><p>低功耗模式</p></li>
+<li><p>深度睡眠模式</p></li>
+</ul>
+</li>
+<li><p><strong>电压检测</strong>: 可编程电压检测 (PVD) 功能</p></li>
+<li><p><strong>看门狗</strong>: 双路看门狗定时器</p></li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h3>3. RA8P1 RTC 技术参数<a class="headerlink" href="#id10" title="链接到此标题。"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>时钟精度</strong></p></td>
+<td><p>±5ppm</p></td>
+<td><p>32.768kHz 晶振精度</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>日历范围</strong></p></td>
+<td><p>2000-2099</p></td>
+<td><p>支持 100 年日历</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>时间格式</strong></p></td>
+<td><p>24小时制</p></td>
+<td><p>支持小时:分钟:秒</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>闰年处理</strong></p></td>
+<td><p>自动</p></td>
+<td><p>自动计算闰年</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>工作电压</strong></p></td>
+<td><p>1.62-3.6V</p></td>
+<td><p>宽电压范围</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>温度范围</strong></p></td>
+<td><p>-40°C ~ +105°C</p></td>
+<td><p>工业级温度范围</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>备份电源</strong></p></td>
+<td><p>3.3V</p></td>
+<td><p>支持 VBATT 电池备份</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="rt-thread-rtc">
+<h2>软件架构 - RT-Thread RTC 设备框架<a class="headerlink" href="#rt-thread-rtc" title="链接到此标题。"></a></h2>
+<section id="rt-thread">
+<h3>1. RT-Thread 设备架构<a class="headerlink" href="#rt-thread" title="链接到此标题。"></a></h3>
+<p>RT-Thread 采用分层的设备管理架构：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>应用层
+├── I/O 设备管理层
+├── 设备驱动框架层
+└── 设备驱动层
+    └── RA8P1 RTC 硬件抽象层
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3>2. RTC 设备类型<a class="headerlink" href="#id11" title="链接到此标题。"></a></h3>
+<p>在 RT-Thread 中，RTC 属于设备类型 <code class="docutils literal notranslate"><span class="pre">RT_Device_Class_RTC</span></code>：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">rt_device_class_type</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RT_Device_Class_Char</span><span class="p">,</span><span class="w">    </span><span class="c1">// 字符设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_Block</span><span class="p">,</span><span class="w">   </span><span class="c1">// 块设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_NetIf</span><span class="p">,</span><span class="w">   </span><span class="c1">// 网络接口设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_MTD</span><span class="p">,</span><span class="w">     </span><span class="c1">// 内存设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_RTC</span><span class="p">,</span><span class="w">     </span><span class="c1">// RTC 设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_Sound</span><span class="p">,</span><span class="w">   </span><span class="c1">// 声音设备</span>
+<span class="w">    </span><span class="n">RT_Device_Class_Graphic</span><span class="p">,</span><span class="w"> </span><span class="c1">// 图形设备</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3>3. 设备管理接口<a class="headerlink" href="#id12" title="链接到此标题。"></a></h3>
+<section id="id13">
+<h4>3.1 设备查找<a class="headerlink" href="#id13" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">rt_device_t</span><span class="w"> </span><span class="nf">rt_device_find</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>3.2 设备操作<a class="headerlink" href="#id14" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_device_open</span><span class="p">(</span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint16_t</span><span class="w"> </span><span class="n">oflag</span><span class="p">);</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_device_close</span><span class="p">(</span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="p">);</span>
+<span class="n">rt_size_t</span><span class="w"> </span><span class="nf">rt_device_read</span><span class="p">(</span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="n">rt_off_t</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">rt_size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="n">rt_size_t</span><span class="w"> </span><span class="nf">rt_device_write</span><span class="p">(</span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="n">rt_off_t</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">rt_size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_device_control</span><span class="p">(</span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint8_t</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="rt-thread-rtc-api">
+<h3>4. RT-Thread RTC API<a class="headerlink" href="#rt-thread-rtc-api" title="链接到此标题。"></a></h3>
+<section id="api">
+<h4>4.1 时间操作 API<a class="headerlink" href="#api" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 设置日期</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">set_date</span><span class="p">(</span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">day</span><span class="p">);</span>
+
+<span class="c1">// 设置时间</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">set_time</span><span class="p">(</span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">minute</span><span class="p">,</span><span class="w"> </span><span class="n">rt_uint32_t</span><span class="w"> </span><span class="n">second</span><span class="p">);</span>
+
+<span class="c1">// 获取当前时间</span>
+<span class="kt">time_t</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h4>4.2 时间戳操作<a class="headerlink" href="#id15" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取时间戳</span>
+<span class="kt">time_t</span><span class="w"> </span><span class="nf">get_timestamp</span><span class="p">(</span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">timestamp</span><span class="p">);</span>
+
+<span class="c1">// 时间戳转换为本地时间</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">gmtime_r</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="o">*</span><span class="n">timep</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h4>4.3 闹钟 API<a class="headerlink" href="#id16" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 闹钟回调函数</span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">rt_alarm_callback</span><span class="p">)(</span><span class="n">rt_alarm_t</span><span class="w"> </span><span class="n">alarm</span><span class="p">,</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="n">timestamp</span><span class="p">);</span>
+
+<span class="c1">// 创建闹钟</span>
+<span class="n">rt_alarm_t</span><span class="w"> </span><span class="nf">rt_alarm_create</span><span class="p">(</span><span class="n">rt_alarm_callback</span><span class="w"> </span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">rt_alarm_setup</span><span class="w"> </span><span class="o">*</span><span class="n">setup</span><span class="p">);</span>
+
+<span class="c1">// 启动闹钟</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_alarm_start</span><span class="p">(</span><span class="n">rt_alarm_t</span><span class="w"> </span><span class="n">alarm</span><span class="p">);</span>
+
+<span class="c1">// 停止闹钟</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_alarm_stop</span><span class="p">(</span><span class="n">rt_alarm_t</span><span class="w"> </span><span class="n">alarm</span><span class="p">);</span>
+
+<span class="c1">// 删除闹钟</span>
+<span class="n">rt_err_t</span><span class="w"> </span><span class="nf">rt_alarm_delete</span><span class="p">(</span><span class="n">rt_alarm_t</span><span class="w"> </span><span class="n">alarm</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="id17">
+<h2>使用示例<a class="headerlink" href="#id17" title="链接到此标题。"></a></h2>
+<section id="id18">
+<h3>1. 时间设置与读取<a class="headerlink" href="#id18" title="链接到此标题。"></a></h3>
+<section id="id19">
+<h4>1.1 基础时间设置<a class="headerlink" href="#id19" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rtthread.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rtdevice.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">hal_entry</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">rt_err_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RT_EOK</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">time_t</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rt_device_find</span><span class="p">(</span><span class="s">&quot;rtc&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">device</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;查找 RTC 设备失败!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 打开设备</span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rt_device_open</span><span class="p">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RT_EOK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;打开 RTC 设备失败!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 设置日期 (2025年8月1日)</span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set_date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RT_EOK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;设置 RTC 日期失败</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;设置 RTC 日期为 2025-8-1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 设置时间 (15:00:00)</span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set_time</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mo">00</span><span class="p">,</span><span class="w"> </span><span class="mo">00</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RT_EOK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;设置 RTC 时间失败</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;设置 RTC 时间为 15:00:00</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 延时3秒</span>
+<span class="w">    </span><span class="n">rt_thread_mdelay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 获取当前时间戳</span>
+<span class="w">    </span><span class="n">get_timestamp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;当前时间: %.*s&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h4>1.2 高级时间操作<a class="headerlink" href="#id20" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取完整时间信息</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">get_full_time_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">time_t</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="o">*</span><span class="n">timeinfo</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 获取当前时间戳</span>
+<span class="w">    </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 转换为本地时间</span>
+<span class="w">    </span><span class="n">timeinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;当前时间信息:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;年份: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1900</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;月份: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;日期: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_mday</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;小时: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;分钟: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;秒: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;星期几: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_wday</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;一年中的第几天: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_yday</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;夏令时标志: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timeinfo</span><span class="o">-&gt;</span><span class="n">tm_isdst</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id21">
+<h3>2. 闹钟配置<a class="headerlink" href="#id21" title="链接到此标题。"></a></h3>
+<section id="id22">
+<h4>2.1 闹钟回调函数<a class="headerlink" href="#id22" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">user_alarm_callback</span><span class="p">(</span><span class="n">rt_alarm_t</span><span class="w"> </span><span class="n">alarm</span><span class="p">,</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="n">timestamp</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;闹钟触发! 时间: %.*s&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timestamp</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">rt_alarm_setup</span><span class="w"> </span><span class="o">*</span><span class="n">setup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">rt_alarm_setup</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">alarm</span><span class="o">-&gt;</span><span class="n">user_data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setup</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RT_ALARM_SECOND</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;每秒闹钟触发</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setup</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RT_ALARM_MINUTE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;每分钟闹钟触发</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id23">
+<h4>2.2 闹钟示例配置<a class="headerlink" href="#id23" title="链接到此标题。"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 闹钟示例函数</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">alarm_sample</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">rt_device_t</span><span class="w"> </span><span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rt_device_find</span><span class="p">(</span><span class="s">&quot;rtc&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">rt_alarm_setup</span><span class="w"> </span><span class="n">setup</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">rt_alarm</span><span class="w"> </span><span class="o">*</span><span class="n">alarm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RT_NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tm</span><span class="w"> </span><span class="n">p_tm</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 获取当前时间戳</span>
+<span class="w">    </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_timestamp</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 设置闹钟时间为下一秒</span>
+<span class="w">    </span><span class="n">now</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">gmtime_r</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p_tm</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 配置闹钟参数</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RT_ALARM_SECOND</span><span class="p">;</span><span class="w">  </span><span class="c1">// 每秒触发</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_year</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_mon</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_mday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_mday</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_wday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_wday</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_hour</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_min</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setup</span><span class="p">.</span><span class="n">wktime</span><span class="p">.</span><span class="n">tm_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_tm</span><span class="p">.</span><span class="n">tm_sec</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 创建闹钟</span>
+<span class="w">    </span><span class="n">alarm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rt_alarm_create</span><span class="p">(</span><span class="n">user_alarm_callback</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">setup</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alarm</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">RT_NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rt_alarm_start</span><span class="p">(</span><span class="n">alarm</span><span class="p">);</span>
+<span class="w">        </span><span class="n">rt_kprintf</span><span class="p">(</span><span class="s">&quot;闹钟创建并启动成功</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="id24">
+<h2>配置说明<a class="headerlink" href="#id24" title="链接到此标题。"></a></h2>
+</section>
+<section id="id25">
+<h2>运行效果示例<a class="headerlink" href="#id25" title="链接到此标题。"></a></h2>
+<section id="id26">
+<h3>1. 控制台输出<a class="headerlink" href="#id26" title="链接到此标题。"></a></h3>
+<p>将程序编译烧写进去后，上电在终端运行alarm_sample即可看到效果</p>
+<p><img alt="image1" src="../../_images/image13.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../Titan_Mini_driver_gpt/README_zh.html" class="btn btn-neutral float-left" title="GPT 驱动示例说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../Titan_Mini_driver_sdram/README_zh.html" class="btn btn-neutral float-right" title="SDRAM 驱动示例说明" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 Copyright (c) 2006-2025, RT-Thread Development Team。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+  
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div class="sdk-footer">
+    <div class="sdk-footer__inner">
+      <div class="sdk-footer__left">
+        <strong>Titan-Board-Mini SDK</strong>
+        <span class="sdk-footer__sep">•</span> 版本：1.0.0
+      </div>
+      <div class="sdk-footer__right">
+        构建时间：<span id="sdk-build-time"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      try {
+        var el = document.getElementById('sdk-build-time');
+        if (el) {
+          var d = new Date(document.lastModified);
+          el.textContent = d.toLocaleString();
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+
+</body>
+</html>
